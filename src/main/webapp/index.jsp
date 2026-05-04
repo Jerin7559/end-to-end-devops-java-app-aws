@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello from manual trigger test!<h2>
+<h2>Hello from jerin automatic trigger test!<h2>
 </body>
 </html>
