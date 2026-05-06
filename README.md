@@ -148,11 +148,10 @@ When an alert is triggered, Prometheus sends the alert to Alertmanager. Alertman
 
 ---
 
-## Application URL
+## Project Links
 
-```text
-http://13.63.129.230/
-```
+- [Open Live Application](http://13.63.129.230/)
+- [Open GitHub Repository](https://github.com/Jerin7559/end-to-end-devops-java-app-aws)
 
 ---
 
