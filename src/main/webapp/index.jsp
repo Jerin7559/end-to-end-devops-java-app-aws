@@ -159,7 +159,7 @@
   <div class="container">
 
     <header class="navbar">
-      <div class="logo">SoftC Company</div>
+      <div class="logo">Jerico Company</div>
 
       <nav>
         <a href="#">Company</a>
