@@ -1,52 +1,127 @@
-# End-to-End CI/CD, Monitoring, and Alerting Pipeline for Java Web App on AWS
+# End-to-End DevOps Pipeline for Java Web App on AWS
 
 ## Project Overview
-This project demonstrates a complete DevOps workflow for a Java web application deployed on AWS.  
-It covers source code management, automated build and deployment, reverse proxy setup, monitoring, alerting, and Telegram notifications.
 
-## Technologies Used
-- AWS EC2
-- GitHub
-- Jenkins
-- Maven
-- Tomcat
-- Nginx
-- Prometheus
-- Grafana
-- Alertmanager
-- Telegram Bot API
+This project demonstrates a complete end-to-end DevOps workflow for deploying, monitoring, and alerting a Java web application on AWS.
 
-## Project Architecture
-GitHub → Jenkins Webhook Trigger → Maven Build → WAR Deployment to Tomcat → Nginx Reverse Proxy → Prometheus Monitoring → Grafana Dashboard → Alertmanager → Telegram Notifications
+The project includes source code management with GitHub, automated CI/CD using Jenkins, Maven-based WAR build, deployment to Apache Tomcat, Nginx reverse proxy configuration, Prometheus monitoring, Grafana visualization, Alertmanager alert routing, and Telegram notifications.
 
-## Features Implemented
-- Java web app deployed on Tomcat
-- Automatic Jenkins build trigger using GitHub webhook
-- WAR file build using Maven
-- Automated deployment to app-server
-- Nginx reverse proxy on port 80
-- Prometheus monitoring for server and Tomcat metrics
-- Grafana dashboard for visualization
-- Prometheus alert rules for app-server down, Tomcat JMX down, low memory, and high CPU
-- Alertmanager integration
-- Telegram alert notifications
+---
 
-## Deployment Flow
-1. Code is pushed to GitHub
-2. GitHub webhook triggers Jenkins pipeline
-3. Jenkins checks out the code
-4. Maven builds the WAR file
-5. Jenkins deploys the WAR file to Tomcat
-6. Nginx serves the application on port 80
-7. Prometheus monitors the infrastructure
-8. Alertmanager sends Telegram alerts when issues occur
+## Architecture
 
-## Application URL
-- http://13.63.129.230/
+Developer
+   |
+   v
+GitHub Repository
+   |
+   v
+GitHub Webhook
+   |
+   v
+Jenkins CI/CD Pipeline
+   |
+   v
+Maven Build
+   |
+   v
+WAR Deployment
+   |
+   v
+Apache Tomcat Application Server
+   |
+   v
+Nginx Reverse Proxy
+   |
+   v
+Users access application on Port 80
 
-## Key Learning Outcomes
-- Built a full CI/CD pipeline for Java application deployment
-- Integrated monitoring and alerting for production-style observability
-- Configured webhook-based automation using GitHub and Jenkins
-- Set up Nginx reverse proxy for clean application access
-- Implemented real-time Telegram notifications for infrastructure alerts
+**Monitoring and Alerting Flow**
+
+App Server / Tomcat / Node Exporter / JMX Exporter
+   |
+   v
+Prometheus
+   |
+   v
+Grafana Dashboard
+   |
+   v
+Prometheus Alert Rules
+   |
+   v
+Alertmanager
+   |
+   v
+Telegram Bot Notification
+
+**Technologies Used**
+
+AWS EC2
+GitHub
+Jenkins
+Maven
+Apache Tomcat
+Nginx
+Prometheus
+Node Exporter
+JMX Exporter
+Grafana
+Alertmanager
+Telegram Bot API
+Linux / Ubuntu
+
+**Features Implemented**
+
+Hosted Java web application on Apache Tomcat
+Automated CI/CD pipeline using Jenkins
+GitHub webhook integration for automatic build trigger
+Maven build process to generate WAR file
+Automated WAR deployment to Tomcat server
+Nginx reverse proxy configuration for clean application access on port 80
+Prometheus monitoring for server and application metrics
+Node Exporter integration for system-level metrics
+JMX Exporter integration for Tomcat/JVM metrics
+Grafana dashboard for real-time visualization
+Prometheus alert rules for infrastructure and application health
+Alertmanager configuration for alert routing
+Telegram bot integration for real-time alert notifications
+
+**CI/CD Deployment Flow**
+
+Developer pushes code changes to GitHub.
+GitHub webhook automatically triggers the Jenkins pipeline.
+Jenkins pulls the latest code from the GitHub repository.
+Maven builds the Java application and generates a WAR file.
+Jenkins deploys the WAR file to the Tomcat server.
+Tomcat runs the Java web application.
+Nginx forwards user traffic from port 80 to the Tomcat application.
+Prometheus monitors server and Tomcat metrics.
+Grafana displays metrics using dashboards.
+Alertmanager sends Telegram notifications when alerts are triggered.
+
+**Monitoring and Alerting**
+
+Prometheus was configured to monitor both infrastructure and application-level metrics.
+
+Metrics Monitored
+Server CPU usage
+Memory usage
+Disk usage
+Node Exporter availability
+Tomcat/JVM metrics
+Application server availability
+JMX Exporter availability
+Alerts Configured
+App server down
+Tomcat JMX exporter down
+High CPU usage
+Low available memory
+
+When an alert is triggered, Prometheus sends it to Alertmanager. Alertmanager then forwards the alert notification to Telegram using Telegram Bot API.
+
+**Application URL**
+http://13.63.129.230/
+
+**Repository Structure**
+
