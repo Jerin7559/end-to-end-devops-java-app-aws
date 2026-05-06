@@ -123,5 +123,79 @@ When an alert is triggered, Prometheus sends it to Alertmanager. Alertmanager th
 **Application URL**
 http://13.63.129.230/
 
-**Repository Structure**
 
+## Repository Structure
+
+
+end-to-end-devops-java-app-aws/
+│
+├── Jenkinsfile
+├── pom.xml
+├── README.md
+├── .gitignore
+│
+├── src/
+│   └── main/
+│       └── webapp/
+│
+├── docs/
+│   ├── architecture.md
+│   ├── nginx.conf.example
+│   ├── prometheus.yml.example
+│   ├── alerts.yml
+│   └── alertmanager.yml.example
+│
+└── screenshots/
+    ├── github-webhook-trigger.png
+    ├── jenkins-pipeline-success.png
+    ├── jenkins-console-output.png
+    ├── jenkins-console-output2.png
+    ├── tomcat-running.png
+    ├── website-output.png
+    ├── nginx-reverse-proxy.png
+    ├── prometheus-targets.png
+    ├── prometheus-basicalerts.png
+    ├── alertmanager-alert.png
+    ├── telegram-alertnotification.png
+    └── grafana-dashboard.png
+
+  **  Screenshots**
+GitHub Webhook Trigger
+
+Jenkins Pipeline Success
+
+Jenkins Console Output
+
+Jenkins Console Output - Deployment Step
+
+Tomcat Running
+
+Deployed Website Output
+
+Nginx Reverse Proxy Output
+
+Prometheus Targets
+
+Prometheus Basic Alerts
+
+Alertmanager Alert
+
+Telegram Alert Notification
+
+Grafana Dashboard
+
+**Key Learning Outcomes**
+
+Through this project, I gained practical experience in:
+
+Building a complete CI/CD pipeline for Java application deployment
+Automating deployment using Jenkins and GitHub webhook
+Building Java applications using Maven
+Deploying WAR files to Apache Tomcat
+Configuring Nginx as a reverse proxy
+Setting up Prometheus monitoring for infrastructure and application metrics
+Creating Grafana dashboards for real-time observability
+Writing Prometheus alert rules
+Configuring Alertmanager for alert routing
+Sending real-time alert notifications to Telegram
+Understanding production-style DevOps workflow on AWS
