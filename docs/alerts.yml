@@ -1,0 +1,38 @@
+groups:
+  - name: basic-alerts
+    rules:
+      - alert: AppServerDown
+        expr: up{job="node_exporter"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "App server node exporter is down"
+          description: "Prometheus cannot scrape node_exporter on the app-server for more than 1 minute."
+
+      - alert: TomcatJMXDown
+        expr: up{job="tomcat_jmx"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Tomcat JMX exporter is down"
+          description: "Prometheus cannot scrape tomcat_jmx on the app-server for more than 1 minute."
+
+      - alert: LowAvailableMemory
+        expr: node_memory_MemAvailable_bytes < 300000000
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low available memory on app-server"
+          description: "Available memory is below 300 MB for more than 2 minutes."
+
+      - alert: HighCPUUsage
+        expr: 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage on app-server"
+          description: "CPU usage is above 80% for more than 2 minutes."
